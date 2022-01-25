@@ -1,6 +1,6 @@
 # Api Viacep
 
-Exenplo simples de consulta de endereço utilizando Api Viacep.
+Exemplo simples de consulta de endereço utilizando Api Viacep.
 ![Screenshot_1643124117](https://user-images.githubusercontent.com/98062365/151005516-d8fbabef-079e-480d-8269-8d1446c8b3ec.png)
 
 

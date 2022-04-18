@@ -3,7 +3,7 @@
 Exemplo simples de consulta de endereço utilizando Api Viacep.
 079e-480d-8269-8d1446c8b3ec.png)
 
-![Screenshot_1643814380](https://user-images.githubusercontent.com/98062365/152180297-f7f49b30-cf85-41cf-9219-8a44c3c6364f.png)
+
 
 ## Getting Started
 

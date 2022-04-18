@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:pageview_carrousel/components/container_widget.dart';
 import 'package:pageview_carrousel/components/text_form_widget.dart';
+import 'package:pageview_carrousel/components/text_widget.dart';
 import 'package:pageview_carrousel/controller/cep_provider.dart';
 import 'package:pageview_carrousel/utils/validate_cep.dart';
 import 'package:provider/provider.dart';
@@ -21,7 +23,6 @@ class _CepPageState extends State<CepPage> {
   @override
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
-    CepProvider provider = Provider.of<CepProvider>(context);
 
     void clearCampos() {
       cepController.clear();
@@ -51,12 +52,20 @@ class _CepPageState extends State<CepPage> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: Form(
-            key: _formKey,
-            child: Column(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: buildForm(_formKey),
+        ),
+      ),
+    );
+  }
+
+  Form buildForm(GlobalKey<FormState> _formKey) {
+    return Form(
+          key: _formKey,
+          child: Consumer<CepProvider>(builder: (context, provider, child) {
+            return Column(
               children: [
-                SizedBox(height: 50),
+                SizedBox(height: 30),
                 TextFormWidget(
                   'Cep',
                   'digite p Cep',
@@ -89,11 +98,11 @@ class _CepPageState extends State<CepPage> {
                         controller: localController,
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 5),
                     Container(
-                      width: 130,
+                      width: 85,
                       child: TextFormWidget(
-                        'Numero',
+                        'Num',
                         'Numero',
                         controller: numController,
                       ),
@@ -112,35 +121,23 @@ class _CepPageState extends State<CepPage> {
                   'Digite a localidade',
                   controller: endController,
                 ),
-                SizedBox(height: 20),
-                buildInkWell()
+                SizedBox(height: 10),
+                InkWell(
+                  onTap: (){},
+                  child: ButtonWidget(
+                    Alignment.center,
+                    55,
+                    double.infinity,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.blue,
+                    ),
+                   child: Text('Salvar',style:  AppTextStyle.MainText),
+                  ),
+                ),
               ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  buildInkWell() {
-    return InkWell(
-      onTap: () {},
-      child: Container(
-        height: 58,
-        width: double.infinity,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          color: Colors.blue,
-        ),
-        child: const Text(
-          'Salvar',
-          style: TextStyle(
-            fontSize: 22,
-            color: Colors.white,
-          ),
-        ),
-      ),
-    );
+            );
+          }),
+        );
   }
 }

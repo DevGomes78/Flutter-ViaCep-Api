@@ -6,6 +6,7 @@ class ButtonWidget extends StatelessWidget {
   double? width;
   Decoration? decoration;
   Widget? child;
+   final List<Color>?gradient;
 
   ButtonWidget(
     this.alignment,
@@ -13,6 +14,8 @@ class ButtonWidget extends StatelessWidget {
     this.width,{
     this.decoration,
     this.child,
+        this.gradient,
+
   });
 
   @override
@@ -23,6 +26,7 @@ class ButtonWidget extends StatelessWidget {
       alignment: alignment,
       decoration: decoration,
       child: child,
+
     );
   }
 }

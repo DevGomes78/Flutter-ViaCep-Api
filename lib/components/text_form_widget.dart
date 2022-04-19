@@ -8,12 +8,14 @@ class TextFormWidget extends StatelessWidget {
   FormFieldValidator<String>? validator;
 
 
+
   TextFormWidget(
       this.labelText,
       this.hintText,{
         this.icon,
         this.controller,
         this.validator,
+
       });
 
   @override
@@ -23,14 +25,15 @@ class TextFormWidget extends StatelessWidget {
       textAlign: TextAlign.center,
       decoration: InputDecoration(
         labelText: labelText,
-        hintText: hintText,
+        hintText: null==hintText?'':hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(20),
         ),
         suffixIcon: icon,
       ),
       controller: controller,
       validator:validator ,
+
     );
   }
 }

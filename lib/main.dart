@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pageview_carrousel/views/home_page.dart';
 import 'package:provider/provider.dart';
@@ -18,6 +19,10 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+         // brightness: Brightness.dark,
+        ),
         home: HomePage(),
       ),
 

@@ -33,11 +33,13 @@ class _CepPageState extends State<CepPage> {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        backgroundColor: Colors.white,
+        elevation: 5,
         title: const Text(
           'Cadastro',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.blue),
         ),
         centerTitle: true,
         actions: [
@@ -46,6 +48,7 @@ class _CepPageState extends State<CepPage> {
             icon: const Icon(
               Icons.refresh,
               size: 25,
+              color: Colors.blue,
             ),
           ),
         ],
@@ -61,83 +64,88 @@ class _CepPageState extends State<CepPage> {
 
   Form buildForm(GlobalKey<FormState> _formKey) {
     return Form(
-          key: _formKey,
-          child: Consumer<CepProvider>(builder: (context, provider, child) {
-            return Column(
+      key: _formKey,
+      child: Consumer<CepProvider>(builder: (
+        context,
+        provider,
+        child,
+      ) {
+        return Column(
+          children: [
+            SizedBox(height: 30),
+            TextFormWidget(
+              'Cep',
+              'digite p Cep',
+              controller: cepController,
+              validator: Validate().validarCep,
+              icon: InkWell(
+                onTap: () {
+                  if (_formKey.currentState!.validate()) {
+                    provider.GetCep(cepController.text);
+
+                    bairroController.text = provider.bairro.toString();
+                    endController.text = provider.localidade.toString();
+                    localController.text = provider.endereco.toString();
+                  }
+                },
+                child: const Icon(
+                  Icons.search,
+                  size: 30,
+                  color: Colors.blue,
+                ),
+              ),
+            ),
+            SizedBox(height: 10),
+            Row(
               children: [
-                SizedBox(height: 30),
-                TextFormWidget(
-                  'Cep',
-                  'digite p Cep',
-                  controller: cepController,
-                  validator: Validate().validarCep,
-                  icon: InkWell(
-                    onTap: () {
-                      if (_formKey.currentState!.validate()) {
-                        provider.GetCep(cepController.text);
-                        bairroController.text = provider.bairro.toString();
-                        endController.text = provider.localidade.toString();
-                        localController.text = provider.endereco.toString();
-                      }
-                    },
-                    child: const Icon(
-                      Icons.search,
-                      size: 30,
-                      color: Colors.red,
-                    ),
+                Container(
+                  width: 300,
+                  child: TextFormWidget(
+                    'Endereço',
+                    'Digite o Endereco',
+                    controller: localController,
                   ),
                 ),
-                SizedBox(height: 10),
-                Row(
-                  children: [
-                    Container(
-                      width: 300,
-                      child: TextFormWidget(
-                        'Endereço',
-                        'Digite o Endereco',
-                        controller: localController,
-                      ),
-                    ),
-                    SizedBox(width: 5),
-                    Container(
-                      width: 85,
-                      child: TextFormWidget(
-                        'Num',
-                        'Numero',
-                        controller: numController,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 10),
-                TextFormWidget(
-                  'Bairro',
-                  'Digite o Bairro',
-                  controller: bairroController,
-                ),
-                SizedBox(height: 10),
-                TextFormWidget(
-                  'Localidade',
-                  'Digite a localidade',
-                  controller: endController,
-                ),
-                SizedBox(height: 10),
-                InkWell(
-                  onTap: (){},
-                  child: ButtonWidget(
-                    Alignment.center,
-                    55,
-                    double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.blue,
-                    ),
-                   child: Text('Salvar',style:  AppTextStyle.MainText),
+                SizedBox(width: 5),
+                Container(
+                  width: 85,
+                  child: TextFormWidget(
+                    'Num',
+                    'Numero',
+                    controller: numController,
                   ),
                 ),
               ],
-            );
-          }),
+            ),
+            SizedBox(height: 10),
+            TextFormWidget(
+              'Bairro',
+              'Digite o Bairro',
+              controller: bairroController,
+            ),
+            SizedBox(height: 10),
+            TextFormWidget(
+              'Localidade',
+              'Digite a localidade',
+              controller: endController,
+            ),
+            SizedBox(height: 10),
+            InkWell(
+              onTap: () {},
+              child: ButtonWidget(
+                Alignment.center,
+                55,
+                double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  color: Colors.blue,
+                ),
+                child: Text('Salvar', style: AppTextStyle.MainText),
+              ),
+            ),
+          ],
         );
+      }),
+    );
   }
 }

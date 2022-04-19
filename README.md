@@ -5,6 +5,7 @@
 
 ### Mais sobre o App
 + Feito a Componentização dos Widgets TexTFormField e Container para reutilizar em outros arquivos dart
++ Utilizado widget Form para Validação de Campos
 + Utilizado padrao MVC na finalidade de organização do código.
 
 ### Dependencias:

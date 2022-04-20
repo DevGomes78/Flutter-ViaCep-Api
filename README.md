@@ -4,7 +4,7 @@
 ### O objetivo desse desafio é utilizar a API Viacep para Consulta,Digitando o cep em um Campo TextForm e retornar os dados da consulta da Api.
 
 ### Mais sobre o App:
-+ Componentização dos Widgets TexTFormField e Container para reutilizar em outros arquivos dart
++ Componentização dos Widgets TexTFormField e Container para reutilizar em outros arquivos
 + Utilizado widget Form para Validação de Campos
 + Utilizado padrao MVC na finalidade de organização do código.
 

@@ -13,4 +13,5 @@
 + http para Conexao com a Api,
 + Provider para gerenciar Conexao com a Api e gerenciar o estado da Aplicaçao
 
-![viaCep](https://user-images.githubusercontent.com/98062365/163898443-a26de2dc-75c2-4df8-8ddf-ae85af3b3b79.gif)
+![viaCep](https://user-images.githubusercontent.com/98062365/164293188-a2c4b137-d8ab-460c-9aa6-a9cf5c074738.gif)
+

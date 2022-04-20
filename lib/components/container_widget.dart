@@ -4,18 +4,15 @@ class ButtonWidget extends StatelessWidget {
   Alignment? alignment;
   double? height;
   double? width;
-  Decoration? decoration;
   Widget? child;
-   final List<Color>?gradient;
+  Color? color;
 
   ButtonWidget(
     this.alignment,
     this.height,
     this.width,{
-    this.decoration,
     this.child,
-        this.gradient,
-
+    this.color,
   });
 
   @override
@@ -24,9 +21,11 @@ class ButtonWidget extends StatelessWidget {
       height: height,
       width: width,
       alignment: alignment,
-      decoration: decoration,
       child: child,
-
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20),
+        color: color,
+      ),
     );
   }
 }

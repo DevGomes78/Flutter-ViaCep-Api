@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
-  Alignment? alignment;
+class ContainerWidget extends StatelessWidget {
+
   double? height;
   double? width;
   Widget? child;
   Color? color;
 
-  ButtonWidget(
-    this.alignment,
+  ContainerWidget(
+
     this.height,
     this.width,{
     this.child,
@@ -18,12 +18,12 @@ class ButtonWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      alignment: Alignment.center,
       height: height,
       width: width,
-      alignment: alignment,
       child: child,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(40),
         color: color,
       ),
     );

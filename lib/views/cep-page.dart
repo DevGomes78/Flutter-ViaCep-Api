@@ -14,6 +14,9 @@ class CepPage extends StatefulWidget {
 }
 
 class _CepPageState extends State<CepPage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
   TextEditingController cepController = TextEditingController();
   TextEditingController bairroController = TextEditingController();
   TextEditingController endController = TextEditingController();
@@ -35,10 +38,10 @@ class _CepPageState extends State<CepPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey[100],
         elevation: 1,
         title: const Text(
-          'Cadastro',
+          'Consulta Cep',
           style: TextStyle(color: Colors.deepPurple),
         ),
         centerTitle: true,
@@ -70,15 +73,44 @@ class _CepPageState extends State<CepPage> {
         provider,
         child,
       ) {
-        return Column(
-          children: [
-            SizedBox(height: 30),
-            ButtonWidget(
-              Alignment.center,
-              55,
-              double.infinity,
-              color: Colors.grey[200],
-              child: TextFormWidget(
+        return SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(height: 30),
+                  ContainerWidget(
+                    55,
+                    400,
+                    color: Colors.grey[100],
+                    child: TextFormWidget(
+                      'Nome',
+                      'Digite o Nome',
+                      controller: nameController,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  ContainerWidget(
+                    55,
+                    400,
+                    color: Colors.grey[100],
+                    child: TextFormWidget(
+                      'Email',
+                      'Digite o Email',
+                      controller: emailController,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  ContainerWidget(
+                    55,
+                    400,
+                    color: Colors.grey[100],
+                    child: TextFormWidget(
+                      'Telefone',
+                      'Digite o telefone',
+                      controller: phoneController,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+              TextFormWidget(
                 'Cep',
                 'digite p Cep',
                 controller: cepController,
@@ -100,74 +132,72 @@ class _CepPageState extends State<CepPage> {
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                ButtonWidget(
-                  Alignment.center,
-                  55,
-                  300,
-                  color: Colors.grey[200],
-                  child: TextFormWidget(
-                    'Endereço',
-                    'Digite o Endereco',
-                    controller: localController,
+              SizedBox(height: 10),
+                  Row(
+                    children: [
+                      ContainerWidget(
+                        55,
+                        300,
+                        color: Colors.grey[100],
+                        child: TextFormWidget(
+                          'Endereço',
+                          'Digite o Endereco',
+                          controller: localController,
+                        ),
+                      ),
+                      SizedBox(width: 5),
+                      ContainerWidget(
+                        55,
+                        85,
+                        color: Colors.grey[100],
+                        child: TextFormWidget(
+                          'Num',
+                          'Numero',
+                          controller: numController,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                SizedBox(width: 5),
-                ButtonWidget(
-                  Alignment.center,
-                  55,
-                  85,
-                  color: Colors.grey[200],
-                  child: TextFormWidget(
-                    'Num',
-                    'Numero',
-                    controller: numController,
-                  ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            ButtonWidget(
-              Alignment.center,
-              55,
-              double.infinity,
-              color: Colors.grey[200],
-              child: TextFormWidget(
-                'Bairro',
-                'Digite o Bairro',
-                controller: bairroController,
-              ),
-            ),
-            SizedBox(height: 10),
-            ButtonWidget(
-              Alignment.center,
-              55,
-              double.infinity,
-              color: Colors.grey[200],
-              child: TextFormWidget(
-                'Localidade',
-                'Digite a localidade',
-                controller: endController,
-              ),
-            ),
-            SizedBox(height: 20),
-            InkWell(
-              onTap: () {},
-              child: ButtonWidget(
-                Alignment.center,
+
+              SizedBox(height: 10),
+              ContainerWidget(
+
                 55,
                 double.infinity,
-                color: Colors.deepPurple,
-                child: Text(
-                  'Salvar',
-                  style: AppTextStyle.MainText,
+                color: Colors.grey[100],
+                child: TextFormWidget(
+                  'Bairro',
+                  'Digite o Bairro',
+                  controller: bairroController,
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 10),
+              ContainerWidget(
+                55,
+                double.infinity,
+                color: Colors.grey[100],
+                child: TextFormWidget(
+                  'Localidade',
+                  'Digite a localidade',
+                  controller: endController,
+                ),
+              ),
+              SizedBox(height: 20),
+              InkWell(
+                onTap: () {},
+                child: ContainerWidget(
+
+                  55,
+                  double.infinity,
+                  color: Colors.deepPurple,
+                  child: Text(
+                    'Salvar',
+                    style: AppTextStyle.MainText,
+                  ),
+                ),
+              ),
+            ],
+          ),
         );
       }),
     );

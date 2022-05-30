@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pageview_carrousel/views/home_page.dart';
+import 'package:pageview_carrousel/views/user_list_page.dart';
 import 'package:provider/provider.dart';
 
 import 'controller/cep_provider.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
          // brightness: Brightness.dark,
         ),
-        home: HomePage(),
+        home: UserList(),
       ),
 
     );

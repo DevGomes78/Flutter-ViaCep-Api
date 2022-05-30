@@ -1,48 +1,39 @@
-
-
-import 'package:pageview_carrousel/constants/service_constants.dart';
-
 class Contact {
+
+  final String contactTable = "contactTable";
+  final String idColumn = "idColumn";
+  final String nameColumn = "nameColumn";
+  final String emailColumn = "emailColumn";
+  final String phoneColumn = "phoneColumn";
+  final String imgColumn = "imgColumn";
+
   int? id;
   String? name;
   String? email;
   String? phone;
-  String? street;
-  String? number;
-  String? complement;
-  String? city;
-  String? state;
+  String? img;
 
   Contact();
 
-  Contact.fromMap(Map map) {
-    id = map[UserColumn().idColumn];
-    name = map[UserColumn().nameColumn];
-    email = map[UserColumn().emailColumn];
-    phone = map[UserColumn().phoneColumn];
-   street = map[UserColumn().streetColumn];
-    number = map[UserColumn().nameColumn];
-    complement = map[UserColumn().complementColumn];
-    city = map[UserColumn().cityColumn];
-    state = map[UserColumn().stateColumn];
-
+  Contact.fromMap(Map map){
+    id = map[idColumn];
+    name = map[nameColumn];
+    email = map[emailColumn];
+    phone = map[phoneColumn];
+    img = map[imgColumn];
   }
 
-  Map<String, dynamic> toMap() {
+  Map<String,dynamic> toMap() {
     Map<String, dynamic> map = {
-      UserColumn().nameColumn: name,
-      UserColumn().emailColumn: email,
-      UserColumn().phoneColumn: phone,
-      UserColumn().streetColumn: street,
-      UserColumn().nameColumn: name,
-      UserColumn().complementColumn: complement,
-      UserColumn().cityColumn: city,
-      UserColumn().stateColumn : state,
-
+      nameColumn: name,
+      emailColumn: email,
+      phoneColumn: phone,
+      imgColumn: img
     };
     if (id != null) {
-      map[UserColumn().idColumn] = id;
+      map[idColumn] = id;
     }
     return map;
   }
+
 }

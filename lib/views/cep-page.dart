@@ -6,7 +6,7 @@ import 'package:pageview_carrousel/controller/cep_provider.dart';
 import 'package:pageview_carrousel/utils/validate_cep.dart';
 import 'package:provider/provider.dart';
 
-import '../string_constants/string_constants.dart';
+import '../constants/string_constants.dart';
 
 class CepPage extends StatefulWidget {
   const CepPage({Key? key}) : super(key: key);
@@ -17,8 +17,6 @@ class CepPage extends StatefulWidget {
 
 class _CepPageState extends State<CepPage> {
 
-  TextEditingController nameController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
   TextEditingController cepController = TextEditingController();
   TextEditingController bairroController = TextEditingController();
   TextEditingController endController = TextEditingController();
@@ -45,14 +43,14 @@ class _CepPageState extends State<CepPage> {
           padding: const EdgeInsets.symmetric(horizontal: 10),
           child: Form(
             key: _formKey,
-            child: Consumer<CepProvider>(builder: (context, provider, child) {
+            child: Consumer<CepProvider>(builder: (
+              context,
+              provider,
+              child,
+            ) {
               return Column(
                 children: [
-                  SizedBox(height: 20),
-                    _areaNome(),
-                  SizedBox(height: 10),
-                  _areaPhone(),
-                  SizedBox(height: 10),
+                  SizedBox(height: 30),
                   _areaCep(_formKey, provider),
                   SizedBox(height: 10),
                   Row(
@@ -100,32 +98,6 @@ class _CepPageState extends State<CepPage> {
     );
   }
 
-  _areaNome() {
-    return ContainerWidget(
-      Alignment.center,
-      55,
-      double.infinity,
-      color: Colors.grey[200],
-      child: TextFormWidget(
-        StringConstants.name,
-        StringConstants.lastname,
-        controller: nameController,
-      ),
-    );
-  }
-  _areaPhone() {
-    return ContainerWidget(
-      Alignment.center,
-      55,
-      double.infinity,
-      color: Colors.grey[200],
-      child: TextFormWidget(
-        StringConstants.phone,
-        StringConstants.enterPhone,
-        controller: phoneController,
-      ),
-    );
-  }
   _areaCep(GlobalKey<FormState> _formKey, CepProvider provider) {
     return ContainerWidget(
       Alignment.center,

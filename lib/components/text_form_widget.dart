@@ -27,7 +27,7 @@ class TextFormWidget extends StatelessWidget {
         labelText: labelText,
         hintText: null==hintText?'':hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(20),
+          borderRadius: BorderRadius.circular(30),
         ),
         suffixIcon: icon,
       ),

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class ButtonWidget extends StatelessWidget {
+class ContainerWidget extends StatelessWidget {
   Alignment? alignment;
   double? height;
   double? width;
   Widget? child;
   Color? color;
 
-  ButtonWidget(
+  ContainerWidget(
     this.alignment,
     this.height,
     this.width,{
@@ -23,7 +23,7 @@ class ButtonWidget extends StatelessWidget {
       alignment: alignment,
       child: child,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(30),
         color: color,
       ),
     );

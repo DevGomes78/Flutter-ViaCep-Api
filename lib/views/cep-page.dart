@@ -81,7 +81,7 @@ class _CepPageState extends State<CepPage> {
       backgroundColor: Colors.white,
       elevation: 1,
       title: const Text(
-        StringConstants.register,
+        StringConstants.queryCep,
         style: TextStyle(color: Colors.deepPurple),
       ),
       centerTitle: true,
